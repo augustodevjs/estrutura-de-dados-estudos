@@ -1,0 +1,11 @@
+package Vetor.teste;
+
+import Vetor.Vetor;
+
+public class class03 {
+    public static void main(String[] args) {
+        Vetor vetor = new Vetor(5);
+
+        vetor.add("Augusto");
+    }
+}
