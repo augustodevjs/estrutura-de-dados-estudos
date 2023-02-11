@@ -11,26 +11,9 @@ public class Vetor {
         this.tamanho = 0;
     }
 
-    // Adiciona um elemento no vetor, mas é mal otimizado.
-
-    /* public void add(String element) {
-        for(int i = 0; i < this.elementos.length; i++) {
-            if(this.elementos[i] == null) {
-                this.elementos[i] = element;
-                break;
-            }
-        }
-    } */
-
-//    public void add(String element) throws Exception {
-//        if(this.tamanho < this.elementos.length) {
-//            this.elementos[this.tamanho] = element;
-//            this.tamanho++;
-//        } else {
-//            throw new Exception("Vetor já está cheio, não é possível adicionar mais elementos.");
-//        }
-//    }
-
+    /**
+     * Adiciona um valor para dentro da array de elementos.
+     */
     public boolean add(String element) {
         if(this.tamanho < this.elementos.length) {
             this.elementos[this.tamanho] = element;
@@ -40,6 +23,9 @@ public class Vetor {
         return false;
     }
 
+    /**
+     * Metodo que vai buscar o elemento pela sua posição.
+     */
     public String busca(int posicao) {
         if(!(posicao >= 0 && posicao < tamanho)) {
             throw new IllegalArgumentException("Posição inválida!");
@@ -48,6 +34,9 @@ public class Vetor {
         return this.elementos[posicao];
     }
 
+    /**
+     * Metodo que vai trazer o índice do elemento da array.
+     */
     public int busca(String elemento) {
         for (int i = 0; i < this.elementos.length; i++) {
             if(this.elementos[i].equals(elemento)) {
@@ -59,7 +48,7 @@ public class Vetor {
 
     public int tamanho() {
         return this.tamanho;
-     }
+    }
 
     @Override
     public String toString() {
