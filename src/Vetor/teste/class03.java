@@ -7,5 +7,9 @@ public class class03 {
         Vetor vetor = new Vetor(5);
 
         vetor.add("Augusto");
+        vetor.add("João");
+        vetor.add("João");
+        vetor.add("João");
+        vetor.add("João");
     }
 }
