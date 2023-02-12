@@ -1,7 +1,5 @@
 package Vetor;
 
-import java.util.Arrays;
-
 public class Vetor {
     private String[] elementos;
     private int tamanho;
@@ -11,10 +9,9 @@ public class Vetor {
         this.tamanho = 0;
     }
 
-    /**
-     * Adiciona um valor para dentro da array de elementos.
-     */
     public boolean add(String element) {
+        this.aumentaCapacidade();
+
         if(this.tamanho < this.elementos.length) {
             this.elementos[this.tamanho] = element;
             this.tamanho++;
@@ -23,15 +20,13 @@ public class Vetor {
         return false;
     }
 
-    /**
-     * Adiciona um valor em qualquer posição do array.
-     */
     public boolean add(int posicao, String element) {
         if(!(posicao >= 0 && posicao < tamanho)) {
             throw new IllegalArgumentException("Posição inválida!");
         }
 
-        // move todos os elementos
+        this.aumentaCapacidade();
+
         for (int i = this.tamanho - 1; i >= posicao; i--) {
             this.elementos[i+1] = this.elementos[i];
         }
@@ -42,9 +37,17 @@ public class Vetor {
         return true ;
     }
 
-    /**
-     * Metodo que vai buscar o elemento pela sua posição.
-     */
+    private void aumentaCapacidade() {
+        if(this.tamanho == this.elementos.length) {
+            String[] elementosNovos = new String[this.elementos.length * 2];
+            for (int i=0; i < this.elementos.length; i++) {
+                elementosNovos[i] = this.elementos[i];
+            }
+
+            this.elementos = elementosNovos;
+        }
+    }
+
     public String busca(int posicao) {
         if(!(posicao >= 0 && posicao < tamanho)) {
             throw new IllegalArgumentException("Posição inválida!");
@@ -53,9 +56,6 @@ public class Vetor {
         return this.elementos[posicao];
     }
 
-    /**
-     * Metodo que vai trazer o índice do elemento da array.
-     */
     public int busca(String elemento) {
         for (int i = 0; i < this.elementos.length; i++) {
             if(this.elementos[i].equals(elemento)) {

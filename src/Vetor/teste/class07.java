@@ -12,6 +12,5 @@ public class class07 {
         vetor.add("João Augusto");
 
         vetor.add(3, "Augusto");
-
     }
 }
