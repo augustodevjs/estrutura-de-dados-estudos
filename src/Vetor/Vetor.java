@@ -24,6 +24,25 @@ public class Vetor {
     }
 
     /**
+     * Adiciona um valor em qualquer posição do array.
+     */
+    public boolean add(int posicao, String element) {
+        if(!(posicao >= 0 && posicao < tamanho)) {
+            throw new IllegalArgumentException("Posição inválida!");
+        }
+
+        // move todos os elementos
+        for (int i = this.tamanho - 1; i >= posicao; i--) {
+            this.elementos[i+1] = this.elementos[i];
+        }
+
+        this.elementos[posicao] = element;
+        this.tamanho++;
+
+        return true ;
+    }
+
+    /**
      * Metodo que vai buscar o elemento pela sua posição.
      */
     public String busca(int posicao) {
