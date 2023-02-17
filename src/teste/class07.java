@@ -1,16 +1,16 @@
-package Vetor.teste;
+package teste;
 
 import Vetor.Vetor;
 
-public class class06 {
+public class class07 {
     public static void main(String[] args) {
-        Vetor vetor = new Vetor(4);
+        Vetor vetor = new Vetor(5);
 
         vetor.add("Fernanda");
         vetor.add("Roxela");
         vetor.add("Augusto");
         vetor.add("João Augusto");
 
-        System.out.println(vetor.busca("Augusto"));
+        vetor.add(3, "Augusto");
     }
 }
