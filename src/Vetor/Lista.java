@@ -1,15 +1,15 @@
 package Vetor;
 
 public class Lista<T> {
-    private String[] elementos;
+    private T[] elementos;
     private int tamanho;
 
     public Lista(int capacidade) {
-        this.elementos = new String[capacidade];
+        this.elementos = (T[]) new String[capacidade];
         this.tamanho = 0;
     }
 
-    public boolean add(String element) {
+    public boolean add(T element) {
         this.aumentaCapacidade();
 
         if(this.tamanho < this.elementos.length) {
@@ -20,7 +20,7 @@ public class Lista<T> {
         return false;
     }
 
-    public boolean add(int posicao, String element) {
+    public boolean add(int posicao, T element) {
         if(!(posicao >= 0 && posicao < tamanho)) {
             throw new IllegalArgumentException("Posição inválida!");
         }
@@ -51,7 +51,7 @@ public class Lista<T> {
 
     private void aumentaCapacidade() {
         if(this.tamanho == this.elementos.length) {
-            String[] elementosNovos = new String[this.elementos.length * 2];
+            T[] elementosNovos = (T[]) new Object[this.elementos.length * 2];
             for (int i=0; i < this.elementos.length; i++) {
                 elementosNovos[i] = this.elementos[i];
             }
@@ -60,7 +60,7 @@ public class Lista<T> {
         }
     }
 
-    public String busca(int posicao) {
+    public T busca(int posicao) {
         if(!(posicao >= 0 && posicao < tamanho)) {
             throw new IllegalArgumentException("Posição inválida!");
         }
